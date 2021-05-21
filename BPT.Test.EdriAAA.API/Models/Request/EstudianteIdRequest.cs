@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace BPT.Test.EdriAAA.API.Models.Request
 {
-    public class EstudianteRequest
+    public class EstudianteIdRequest : EstudianteRequest
     {
-        public string Nombre { get; set; }
-        public DateTime FechaNacimiento { get; set; }
+        public int ID { get; set; }
     }
 }

@@ -13,12 +13,28 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Post Estudiantes</td>
-                    <td><a href="@Url.Action("Post", "Estudiante")" class="btn btn-success">Post Estudiantes</a></td>
+                    <td>Get Estudiantes</td>
+                    <td><a href="@Url.Action("GetEstudiantes", "Estudiante")" class="btn btn-success">Get Estudiantes</a></td>
                     <td>
                         <p>Solamente enviar el link:</p>
                         <p><code>https://localhost:44344/api/Estudiante</code></p>
-                        <p>Y enviar el JSON</p>                      
+                    </td>
+                </tr>
+                <tr>
+                    <td>Get Estudiante Por Id</td>
+                    <td><a href="@Url.Action("GetEstudiantes", "Estudiante")" class="btn btn-success">Get Estudiante por Id</a></td>
+                    <td>
+                        <p>Solamente enviar el link con el Id del estudiante a buscar:</p>
+                        <p><code>https://localhost:44344/api/Estudiante/4</code></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Post Estudiante</td>
+                    <td><a href="@Url.Action("PostEstudiante", "Estudiante")" class="btn btn-success">Post Estudiantes</a></td>
+                    <td>
+                        <p>Solamente enviar el link:</p>
+                        <p><code>https://localhost:44344/api/Estudiante</code></p>
+                        <p>Y enviar el JSON</p>
                         <code>
                             <pre>
 {
@@ -26,18 +42,42 @@
     "fechaNacimiento": "1984-01-15"
 }
                             </pre>
-                        </code>  
+                        </code>
                     </td>
-                    
                 </tr>
                 <tr>
-                    <td>Get Estudiantes</td>
-                    <td><a href="@Url.Action("Get", "Estudiante")" class="btn btn-success">Get Estudiantes</a></td>
+                    <td>Put Estudiante</td>
+                    <td><a href="@Url.Action("PutEstudiante", "Estudiante")" class="btn btn-success">Get Estudiantes</a></td>
                     <td>
-                        <p>Solamente enviar el link:</p> 
+                        <p>Solamente enviar el link:</p>
                         <p><code>https://localhost:44344/api/Estudiante</code></p>
+                        <p>Y enviar el JSON</p>
+                        <code>
+                            <pre>
+{
+    "id": 1,
+    "nombre": "edri alan wayne arteaga",
+    "fechaNacimiento": "1994-12-15"
+}
+                            </pre>
+                        </code>
                     </td>
-
+                </tr>
+                <tr>
+                    <td>Delete Estudiante</td>
+                    <td><a href="@Url.Action("DeleteEstudiante", "Estudiante")" class="btn btn-success">Get Estudiantes</a></td>
+                    <td>
+                        <p>Solamente enviar el link:</p>
+                        <p><code>https://localhost:44344/api/Estudiante</code></p>
+                        <p>Y enviar el JSON</p>
+                        <code>
+                            <pre>
+{
+    "id": 1,
+}
+                            </pre>
+                        </code>
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -1,0 +1,12 @@
+C:\Users\EA33010\source\repos\prueba1\BPT.Test.EdriAAA.Client\bin\Debug\netcoreapp2.1\BPT.Test.EdriAAA.Client.deps.json
+C:\Users\EA33010\source\repos\prueba1\BPT.Test.EdriAAA.Client\bin\Debug\netcoreapp2.1\BPT.Test.EdriAAA.Client.runtimeconfig.json
+C:\Users\EA33010\source\repos\prueba1\BPT.Test.EdriAAA.Client\bin\Debug\netcoreapp2.1\BPT.Test.EdriAAA.Client.runtimeconfig.dev.json
+C:\Users\EA33010\source\repos\prueba1\BPT.Test.EdriAAA.Client\bin\Debug\netcoreapp2.1\BPT.Test.EdriAAA.Client.dll
+C:\Users\EA33010\source\repos\prueba1\BPT.Test.EdriAAA.Client\bin\Debug\netcoreapp2.1\BPT.Test.EdriAAA.Client.pdb
+C:\Users\EA33010\source\repos\prueba1\BPT.Test.EdriAAA.Client\obj\Debug\netcoreapp2.1\BPT.Test.EdriAAA.Client.AssemblyInfoInputs.cache
+C:\Users\EA33010\source\repos\prueba1\BPT.Test.EdriAAA.Client\obj\Debug\netcoreapp2.1\BPT.Test.EdriAAA.Client.AssemblyInfo.cs
+C:\Users\EA33010\source\repos\prueba1\BPT.Test.EdriAAA.Client\obj\Debug\netcoreapp2.1\BPT.Test.EdriAAA.Client.csproj.CoreCompileInputs.cache
+C:\Users\EA33010\source\repos\prueba1\BPT.Test.EdriAAA.Client\obj\Debug\netcoreapp2.1\BPT.Test.EdriAAA.Client.dll
+C:\Users\EA33010\source\repos\prueba1\BPT.Test.EdriAAA.Client\obj\Debug\netcoreapp2.1\BPT.Test.EdriAAA.Client.pdb
+C:\Users\EA33010\source\repos\prueba1\BPT.Test.EdriAAA.Client\obj\Debug\netcoreapp2.1\BPT.Test.EdriAAA.Client.genruntimeconfig.cache
+C:\Users\EA33010\source\repos\prueba1\BPT.Test.EdriAAA.Client\obj\Debug\netcoreapp2.1\BPT.Test.EdriAAA.Client.csprojAssemblyReference.cache
