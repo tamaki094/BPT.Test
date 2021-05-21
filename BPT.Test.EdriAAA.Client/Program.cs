@@ -15,16 +15,27 @@ namespace BPT.Test.EdriAAA.Client
 
         static void Main(string[] args)
         {
+            AbrirMenu();
+            
+        }
+
+        private static void AbrirMenu()
+        {
             Console.WriteLine("Welcome to the student's system");
 
             Console.WriteLine("Send option please:");
 
             Console.WriteLine(@"
-                1-Consult students in data base 
-                2-Register student 
-                3-Update student data 
-                4-Consult student by Id
-                5-Delete student 
+                1 - Consult students in data base 
+                2 - Register student 
+                3 - Update student data 
+                4 - Consult student by Id
+                5 - Delete student 
+                6 - Reguster Asignation 
+                7 - Consult Asignations
+                8 - Consult Asignations by student
+                9 - Enroll student to a course
+                10 - Salir
             ");
 
             Console.Write("Option:");
@@ -47,11 +58,25 @@ namespace BPT.Test.EdriAAA.Client
                 case "5":
                     BorrarEstudiante();
                     break;
+                case "6":
+                    GuardarAsignacion();
+                    break;
+                case "7":
+                    ObtenerAsignaciones();
+                    break;
+                case "8":
+                    ObtenerAsignacionesPorEstudiante();
+                    break;
+                case "9":
+                    AsignarEstudiante();
+                    break;
+                case "10":
+                    return;
                 default:
                     Console.WriteLine("Option entered does not exist");
                     break;
             }
-            
+            AbrirMenu();
         }
 
         private static void ObtenerEstudiantes()
@@ -115,6 +140,69 @@ namespace BPT.Test.EdriAAA.Client
                 estudiante.FechaNacimiento = fecha_nacimiento;
 
                 string json = JsonConvert.SerializeObject(estudiante);
+                Console.WriteLine("Plase wait...");
+                dynamic respuesta = api.Post((string.Format("{0}{1}", url_base, action)), json);
+
+
+                Console.WriteLine(respuesta);
+            }
+            catch (Exception ex )
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
+
+        }
+
+        private static void GuardarAsignacion()
+        {
+            try
+            {
+                string nombre = "";
+
+                Console.WriteLine("Write  asignation name: ");
+                nombre = Console.ReadLine();
+
+                action = "api/Asignaciones/GuardarAsignacion";
+
+                Asignaciones asignacion = new Asignaciones();
+                asignacion.Nombre = nombre;
+
+                string json = JsonConvert.SerializeObject(asignacion);
+                Console.WriteLine("Plase wait...");
+                dynamic respuesta = api.Post((string.Format("{0}{1}", url_base, action)), json);
+
+
+                Console.WriteLine(respuesta);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
+        }
+
+        private static void AsignarEstudiante()
+        {
+            try
+            {
+                int idestudiante;
+                int idasignacion;
+
+                Console.WriteLine("Write  student id: ");
+                idestudiante = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Write asignation id: ");
+                idasignacion = Convert.ToInt32(Console.ReadLine());
+
+                action = "api/AsignacionesEstudiante/AsignarEstudiante";
+
+                AsignacionesEstudiante ae = new AsignacionesEstudiante();
+                ae.IdEstudiante = idestudiante;
+                ae.IdAsignacion = idasignacion;
+
+                string json = JsonConvert.SerializeObject(ae);
                 Console.WriteLine("Plase wait...");
                 dynamic respuesta = api.Post((string.Format("{0}{1}", url_base, action)), json);
 
@@ -208,6 +296,55 @@ namespace BPT.Test.EdriAAA.Client
 
 
                 Console.WriteLine(respuesta);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static void ObtenerAsignaciones()
+        {
+            try
+            {
+                action = "api/Asignaciones/ConsultarAsignaciones";
+                string url = string.Format("{0}{1}", url_base, action);
+                Console.WriteLine("Please wait...");
+                dynamic response = api.Get(url);
+                List<Asignaciones> lst_asignaciones = JsonConvert.DeserializeObject<List<Asignaciones>>(Convert.ToString(response));
+                Console.WriteLine("\r \t");
+                foreach (Asignaciones asignacion in lst_asignaciones)
+                {
+                    Console.WriteLine(string.Format("Asignation Name: {0}", asignacion.Nombre));
+                }
+
+                //Console.WriteLine(response);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static void ObtenerAsignacionesPorEstudiante()
+        {
+            try
+            {
+                Console.WriteLine("Entered id student: ");
+                string id_estudiante = Console.ReadLine(); 
+                action = "api/AsignacionesEstudiante/ConsultarAsignacionesByEstudiante/";
+                string url = string.Format("{0}{1}{2}", url_base, action, id_estudiante);
+                Console.WriteLine("Please wait...");
+                dynamic response = api.Get(url);
+                List<AsignacionByEstudiante> lst_asignaciones = JsonConvert.DeserializeObject<List<AsignacionByEstudiante>>(Convert.ToString(response));
+                Console.WriteLine("\r \t");
+                foreach (AsignacionByEstudiante asignacion in lst_asignaciones)
+                {
+                    Console.WriteLine(string.Format("student ''{0}'' is enrolled in the ''{1}'' course", asignacion.estudiante, asignacion.asignacion));
+                  
+                }
+
+                //Console.WriteLine(response);
             }
             catch (Exception ex)
             {

@@ -28,7 +28,7 @@ namespace BPT.Test.EdriAAA.API.Controllers
 
 
         [HttpPost("GuardarAsignacion")]
-        public ActionResult PostAsignacion([FromBody] Models.Request.EstudianteRequest model)
+        public ActionResult PostAsignacion([FromBody] Models.Request.AsignacionRequest model)
         {
             try
             {
