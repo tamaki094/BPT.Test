@@ -1,6 +1,46 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Metodo</th>
+                    <th>Link</th>
+                    <th>Documentacion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Post Estudiantes</td>
+                    <td><a href="@Url.Action("Post", "Estudiante")" class="btn btn-success">Post Estudiantes</a></td>
+                    <td>
+                        <p>Solamente enviar el link:</p>
+                        <p><code>https://localhost:44344/api/Estudiante</code></p>
+                        <p>Y enviar el JSON</p>                      
+                        <code>
+                            <pre>
+{
+    "nombre": "Ramon Valdez",
+    "fechaNacimiento": "1984-01-15"
+}
+                            </pre>
+                        </code>  
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>Get Estudiantes</td>
+                    <td><a href="@Url.Action("Get", "Estudiante")" class="btn btn-success">Get Estudiantes</a></td>
+                    <td>
+                        <p>Solamente enviar el link:</p> 
+                        <p><code>https://localhost:44344/api/Estudiante</code></p>
+                    </td>
 
-<a href="@Url.Action("Get", "Estudiante")" class="btn btn-success">Get Estudiantes</a>
-<a href="@Url.Action("Post", "Estudiante")" class="btn btn-success">Post Estudiantes</a>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
