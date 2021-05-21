@@ -26,5 +26,30 @@ namespace BPT.Test.EdriAAA.API.Controllers
             }
         }
 
+
+        [HttpPost("GuardarAsignacion")]
+        public ActionResult PostAsignacion([FromBody] Models.Request.EstudianteRequest model)
+        {
+            try
+            {
+                using (Models.BdEstudiantesContext db = new BdEstudiantesContext())
+                {
+                    Models.Asignaciones asignacion = new Models.Asignaciones();
+                    asignacion.Nombre = model.Nombre;
+
+                    db.Asignaciones.Add(asignacion);
+                    db.SaveChanges();
+
+                    object respuesta = new { Codigo = 1, Mensje = "Guardado" };
+                    return Ok(HttpStatusCode.OK);
+                }
+            }
+            catch (Exception)
+            {
+                return Ok(HttpStatusCode.BadRequest);
+            }
+
+        }
+
     }
 }
